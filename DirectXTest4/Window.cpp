@@ -104,6 +104,7 @@ Window::Window(int width, int height, const char * name):width(width),height(hei
 		throw CHWND_EXCEPT_LAST();
 	}
 
+	sound.hWnd = hWnd;
 	ShowWindow(hWnd, SW_SHOWDEFAULT);
 }
 

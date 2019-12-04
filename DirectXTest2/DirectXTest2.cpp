@@ -376,6 +376,7 @@ int messageLoop()
 		{
 			if(msg.message==WM_QUIT)
 				break;
+			
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}

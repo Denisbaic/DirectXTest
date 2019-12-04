@@ -46,6 +46,14 @@ int messageLoop()
 			{
 				MessageBox(nullptr, "ALT is pressed", "Test", MB_OK | MB_ICONEXCLAMATION);
 			}
+			if(g_point->kbd.KeyIsPressed(VK_F1))
+			{
+				g_point->sound.CreateSound();
+			}
+			if (g_point->kbd.KeyIsPressed(VK_F2))
+			{
+				g_point->sound.Pause();
+			}
 			while(!g_point->mouse.IsEmpty())
 			{
 				const auto e = g_point->mouse.Read();

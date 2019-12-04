@@ -3,6 +3,8 @@
 #include "Exception.h"
 #include "Keyboard.h"
 #include "Mouse.h"
+#include "Sound.h"
+
 class Window
 {
 public:
@@ -46,6 +48,7 @@ private:
 public:
 	Keyboard kbd;
 	Mouse mouse;
+	Sound sound;
 private:
 	int width{};
 	int height{};

@@ -42,17 +42,15 @@ int messageLoop()
 				break;
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
-			if (g_point->kbd.KeyIsPressed(VK_MENU))
-			{
-				MessageBox(nullptr, "ALT is pressed", "Test", MB_OK | MB_ICONEXCLAMATION);
-			}
-			if(g_point->kbd.KeyIsPressed(VK_F1))
-			{
-				g_point->sound.CreateSound();
-			}
-			if (g_point->kbd.KeyIsPressed(VK_F2))
+
+			const auto e_kb = g_point->kbd.ReadKey();
+			if(e_kb.GetCode()==VK_F1 && e_kb.IsRelease())
 			{
 				g_point->sound.Pause();
+			}
+			else if(e_kb.GetCode() == VK_F1 && e_kb.IsPress())
+			{
+				g_point->sound.CreateSound();
 			}
 			while(!g_point->mouse.IsEmpty())
 			{

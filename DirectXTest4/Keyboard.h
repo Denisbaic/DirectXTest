@@ -61,7 +61,7 @@ public:
 	void EnableAutorepeat() noexcept;
 	void DisableAutorepeat() noexcept;
 	bool AutorepeatIsEnabled() const noexcept;
-private:
+
 	void OnKeyPressed(unsigned char keycode) noexcept;
 	void OnKeyReleased(unsigned char keycode) noexcept;
 	void OnChar(char character) noexcept;

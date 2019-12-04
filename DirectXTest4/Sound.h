@@ -11,6 +11,7 @@ class Sound
 	Microsoft::WRL::ComPtr<IXAudio2> pXAudio2;
 	IXAudio2MasteringVoice * pMasteringVoice;
 	IXAudio2SourceVoice * pSourceVoice;
+
 	byte soundData[2 * 5 * 44100];
 	/*
 	class XAudioDll

@@ -76,4 +76,15 @@
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="1.wav">
+      <Filter>Файлы ресурсов</Filter>
+    </Media>
+    <Media Include="2.wav">
+      <Filter>Файлы ресурсов</Filter>
+    </Media>
+    <Media Include="Wav\0\a0.wav">
+      <Filter>Файлы ресурсов</Filter>
+    </Media>
+  </ItemGroup>
 </Project>

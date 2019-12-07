@@ -2,17 +2,14 @@
 #include <wrl/client.h>
 //#include <xaudio2.h>
 #include "XAudio/XAudio2.h"
+
+
 class Sound
 {
-	const int sampleRate = 44100;
-	const int seconds = 5;
-	const int channels = 2;
-	const int samples = seconds * sampleRate;
 	Microsoft::WRL::ComPtr<IXAudio2> pXAudio2;
 	IXAudio2MasteringVoice * pMasteringVoice;
-	IXAudio2SourceVoice * pSourceVoice;
 
-	byte soundData[2 * 5 * 44100];
+	
 	/*
 	class XAudioDll
 	{
@@ -43,11 +40,35 @@ class Sound
 	};
 	*/
 public:
+	class c_dsp_wav
+	{
+	public:
+		void				*lpBuf;
+		WAVEFORMATEX	    *lpWaveHeader;
+		DWORD				 dwFileLength;
+		DWORD				 dwWaveSize;
+		BYTE				*lpWaveData;
+		DWORD				dwPlayPos;
+		DWORD				dwWritePos;
+
+		void reset();
+		c_dsp_wav();
+		~c_dsp_wav();
+		BOOL LoadWav(char const *fPath);
+	};
+	c_dsp_wav wavFILE[88];
+	
 	//XAudioDll xaudio_dll;
+	//XAUDIO2_BUFFER AudioBuffer[88];
+	
+	IXAudio2SourceVoice* pSourceVoice[88];
+	static BOOL DSParseWaveResource(void *pvRes, WAVEFORMATEX **ppWaveHeader,BYTE **ppbWaveData, DWORD *pcbWaveSize);
 	HWND hWnd;
-	void CreateSound();
-	void Pause();
+	void CreateSound(int kIndex);
+	void Pause(int kIndex);
 	Sound();
 	~Sound()=default;
 };
 
+
+typedef Sound::c_dsp_wav *LPDSPWAV;

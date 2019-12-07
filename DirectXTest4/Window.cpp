@@ -94,9 +94,6 @@ Window::Window(int width, int height, const char * name):width(width),height(hei
 		throw CHWND_EXCEPT_LAST();
 	}
 
-	
-	
-
 	hWnd = CreateWindow(WindowClass::GetName(), name, WS_CAPTION | WS_MAXIMIZEBOX | WS_SYSMENU, wr.left,
 		wr.top, wr.right-wr.left, wr.bottom - wr.top, nullptr, nullptr, WindowClass::GetInstance(), this);
 	if(hWnd ==nullptr)
